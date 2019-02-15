@@ -9,7 +9,7 @@ This checklist is used whenever a project is going live at https://spatie.be
 ## 2. Front end checklist
 
 ### Assets
-- [ ] Search sources for `http://`. Replace by `https://`
+- [ ] Search sources for `http://`. Replace by `//`
 - [ ] Lint (s)css sources
 - [ ] Webfonts: is the live domain configured in services like Typekit, Fonts.com etc.?
 - [ ] Is the browserlist properly configured for autoprefixer and babel-preset-env?
@@ -21,9 +21,9 @@ This checklist is used whenever a project is going live at https://spatie.be
 - [ ] Check for console errors
 
 ### Page weight
-- [ ] Evaluate total weight of at least homepage
+- [ ] Evaluate at least the homepage, drink and product landing pages, and specific drink and product pages in lighthouse
 - [ ] Open Inspector network/timeline tab to identify heavy assets 
-- [ ] Check if heavy assets are cached 
+- [ ] Check if heavy assets are cached and delivered through a CDN
 
 ### Audits
 - [ ] Use the Chrome DevTools (in incognito mode) and perform a mobile audit (with throttling) to fix common problems.
@@ -55,46 +55,23 @@ _Repeat this section for all languages_
 - [ ] Check structured data for news, events, products,... https://search.google.com/structured-data/testing-tool/
 
 ## 4. Back end checklist
-- [ ] Open up `/blender`
-- [ ] Remove unused modules from main menu 
-- [ ] Configure Analytics dashboard
-- [ ] Create a new admin and try to log in
-- [ ] Try the password reset flow for existing user
-- [ ] Try saving article / news / ...
-- [ ] Verify all e-mail recipients are correct
-- [ ] Scan database for urls to development domain
-- [ ] Check client's logo in header
+
 
 ## 5. Server, DNS & Services
 - [ ] Add redirects from old to new pages if necessary.
-- [ ] Install Let's Encrypt certificate
-- [ ] Check SSL certificate health https://www.ssllabs.com/ssltest/
-- [ ] Check your hostfile to make sure you're looking at the live site
 - [ ] Try visiting `www` domain, should redirect to `non-www`
 - [ ] Try out visiting `http`, should redirect to `https`
 - [ ] Verify that all http status codes are ok with https://github.com/spatie/http-status-check
 - [ ] Scan for mixed content with https://github.com/spatie/mixed-content-scanner-cli
 - [ ] Verify that the content of robots header is current with `curl-I https://url` on `x-robots-tag`
-- [ ] Remove development DNS record
-- [ ] Check dns propagation with https://www.whatsmydns.net/
-- [ ] Verify Tag Manager / Analytics have been correctly set up
 
-### Google Search Console
-- [ ] Submit all www/non-www http/https variations
+### Google
+####  Tag manager
+- [ ] Make sure the AVP events are loaded into the tag manager
+####  Search Console
+- [ ] Submit all www/non-www http/https variations and market variations
 - [ ] Set up non-www https as the preferred domain 
 - [ ] Crawl > Fetch as Google > Submit to index to kickstart index
 
-### Server
-- [ ] Are DigitalOcean backups enabled?
-- [ ] Are Amazon backups enabled?
-- [ ] Is the output of artisan task `backup:run` ok?
-- [ ] Is artisan scheduled on Forge?
-- [ ] Is Horizon configured in Supervisor on Forge? Command should be `php artisan horizon`. Path should be `/home/forge/my-new-site.com/current`
-- [ ] Is the url being monitored by [Oh Dear!](https://ohdearapp.com/)?
-- [ ] Is the server being monitored by our server-monitor?
-
 ### Github
 - [ ] Remove `develop` branch or other stale branches 
-
-## About Spatie
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
